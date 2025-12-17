@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blue / Green</title>
+
+  <script>
+    const ENV = "BLUE";
+
+    const ENV_CONFIG = {
+      BLUE: { label: "BLUE", color: "#0057D9" },
+      GREEN: { label: "GREEN", color: "#1f8f3a" }
+    };
+
+    const config = ENV_CONFIG[ENV];
+    if (!config) throw new Error("Invalid ENV value");
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 0.15rem;
+      margin: 0;
+    }
+
+    .instance {
+      margin-top: 1rem;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="env"></h1>
+  <div class="instance" id="instance"></div>
+
+  <script>
+    document.body.style.backgroundColor = config.color;
+    document.getElementById("env").innerText = config.label;
+  </script>
+</body>
+</html>
